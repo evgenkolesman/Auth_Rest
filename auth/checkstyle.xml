@@ -13,10 +13,10 @@
 
     <!-- Checks for Headers                                -->
     <!-- See http://checkstyle.sf.net/config_header.html   -->
-    <module name="Header">
-        <property name="headerFile" value="${checkstyle.header.file}"/>
-        <property name="fileExtensions" value="java"/>
-    </module>
+<!--    <module name="Header">-->
+<!--        <property name="headerFile" value="${checkstyle.header.file}"/>-->
+<!--        <property name="fileExtensions" value="java"/>-->
+<!--    </module>-->
 
     <module name="TreeWalker">
 
@@ -36,7 +36,7 @@
 
         <!-- Checks for Size Violations.                    -->
         <!-- See http://checkstyle.sf.net/config_sizes.html -->
-        <module name="LineLength"/>
+<!--        <module name="LineLength"/>-->
         <module name="MethodLength"/>
         <module name="ParameterNumber"/>
 
@@ -79,7 +79,7 @@
 
         <!-- Checks for class design                         -->
         <!-- See http://checkstyle.sf.net/config_design.html -->
-        <module name="DesignForExtension"/>
+<!--        <module name="DesignForExtension"/>-->
         <module name="FinalClass"/>
         <module name="HideUtilityClassConstructor"/>
         <module name="InterfaceIsType"/>
@@ -87,7 +87,7 @@
         <!-- Miscellaneous other checks.                   -->
         <!-- See http://checkstyle.sf.net/config_misc.html -->
         <module name="ArrayTypeStyle"/>
-        <module name="FinalParameters"/>
+<!--        <module name="FinalParameters"/>-->
         <module name="TodoComment"/>
         <module name="UpperEll"/>
 
