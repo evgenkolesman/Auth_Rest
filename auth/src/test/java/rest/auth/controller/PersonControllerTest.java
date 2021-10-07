@@ -35,7 +35,6 @@ class PersonControllerTest {
     @MockBean
     PersonRepository repo;
 
-
     @Test
     void findAll() throws Exception {
         ObjectMapper mapper = new ObjectMapper();
@@ -48,7 +47,6 @@ class PersonControllerTest {
                 .andDo(print())
                 .andExpect(status().is2xxSuccessful());
     }
-
 
     @Test
     void findByIdTest() throws Exception {
