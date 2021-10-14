@@ -1,41 +1,39 @@
 package rest.auth.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.ParameterizedTypeReference;
-import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
+import rest.auth.domain.Employee;
 import rest.auth.domain.Person;
-import rest.auth.domain.Report;
+import rest.auth.repository.EmployeeRepository;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
+
+import static java.util.stream.StreamSupport.stream;
 
 @RestController
-@RequestMapping("/report")
-public class ReportController {
+@RequestMapping("/employee")
+public class EmployeeController {
 
     @Autowired
     private RestTemplate rest;
+
+    private final EmployeeRepository repo;
 
     private static final String API = "http://localhost:8080/person/";
 
     private static final String API_ID = "http://localhost:8080/person/{id}";
 
+    public EmployeeController(EmployeeRepository repo) {
+        this.repo = repo;
+    }
+
     @GetMapping("/")
-    public List<Report> findAll() {
-        List<Report> rsl = new ArrayList<>();
-        List<Person> persons = rest.exchange(
-                API,
-                HttpMethod.GET, null, new ParameterizedTypeReference<List<Person>>() { }
-        ).getBody();
-        for (Person person : persons) {
-            Report report = Report.of(1, "First", person);
-            rsl.add(report);
-        }
-        return rsl;
+    public List<Employee> findAll() {
+        return stream(repo.findAll().spliterator(), false).collect(Collectors.toList());
     }
 
     @PostMapping("/")

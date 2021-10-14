@@ -12,8 +12,8 @@ public class AuthApplication {
         SpringApplication.run(AuthApplication.class, args);
     }
 
-//    @Bean
-//    public RestTemplate getTemplate() {
-//        return new RestTemplate();
-//    }
+        @Bean
+    public RestTemplate getTemplate() {
+        return new RestTemplate();
+    }
 }

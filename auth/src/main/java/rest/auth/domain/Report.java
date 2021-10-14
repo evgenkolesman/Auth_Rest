@@ -1,9 +1,7 @@
 package rest.auth.domain;
 
-import javax.persistence.*;
 import java.sql.Timestamp;
 import java.util.Objects;
-
 
 public class Report {
 
@@ -12,7 +10,6 @@ public class Report {
     private String name;
 
     private Timestamp created;
-
 
     private Person person;
 
